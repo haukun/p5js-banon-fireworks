@@ -131,6 +131,12 @@ jobs:
             let code = extractField(body, 'コード / Code');
             code = code.replace(/^```javascript\n?/i, '').replace(/^```js\n?/i, '').replace(/\n?```$/g, '').trim();
 
+            // 参加者コードからTITLE/AUTHOR/区切り線を除去（システムが付け直す）
+            code = code.replace(/\/\/\s*=+\s*\n/g, '');
+            code = code.replace(/const\s+TITLE\s*=\s*.*;\s*\n?/g, '');
+            code = code.replace(/const\s+AUTHOR\s*=\s*.*;\s*\n?/g, '');
+            code = code.trim();
+
             const dir = path.join('entries', entryName);
             fs.mkdirSync(dir, { recursive: true });
 
