@@ -74,7 +74,7 @@
     activeSlot.classList.remove('fading-out');
     activeSlot.classList.add('active');
 
-    showOverlay(entry.title, entry.author);
+    showOverlay(entry.title, entry.author, entry.icon ? `../entries/${entry.id}/${entry.icon}` : null);
     updateCounter();
   }
 
@@ -97,7 +97,7 @@
       nextSlot.classList.remove('fading-out');
       nextSlot.classList.add('active');
 
-      showOverlay(nextEntry.title, nextEntry.author);
+      showOverlay(nextEntry.title, nextEntry.author, nextEntry.icon ? `../entries/${nextEntry.id}/${nextEntry.icon}` : null);
 
       // クロスフェード完了後にスロット入れ替え
       setTimeout(() => {
@@ -216,9 +216,21 @@
     return URL.createObjectURL(blob);
   }
 
-  function showOverlay(title, author) {
+  function showOverlay(title, author, icon) {
     overlayTitle.textContent = title || '';
     overlayAuthor.textContent = author || '';
+
+    // アイコン表示
+    const existing = overlay.querySelector('.overlay-icon');
+    if (existing) existing.remove();
+    if (icon) {
+      const img = document.createElement('img');
+      img.className = 'overlay-icon';
+      img.src = icon;
+      img.alt = '';
+      overlay.insertBefore(img, overlay.firstChild);
+    }
+
     overlay.classList.add('visible');
     setTimeout(() => {
       overlay.classList.remove('visible');

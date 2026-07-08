@@ -137,6 +137,68 @@ jobs:
             const content = `// ============================================================\nconst TITLE = ${JSON.stringify(title)};\nconst AUTHOR = ${JSON.stringify(author)};\n// ============================================================\n\n${code}\n`;
             fs.writeFileSync(path.join(dir, 'sketch.js'), content);
 
+      - name: Download icon if provided
+        if: steps.parse.outputs.has_errors == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const https = require('https');
+
+            const issue = context.payload.issue;
+            const body = issue.body || '';
+            const entryName = '${{ steps.parse.outputs.entry_name }}';
+
+            function extractField(body, label) {
+              const regex = new RegExp(`### ${label}\\s*\\n\\n([\\s\\S]*?)(?=\\n###|$)`);
+              const match = body.match(regex);
+              return match ? match[1].trim() : '';
+            }
+
+            const iconField = extractField(body, 'アイコン画像 / Icon \\(optional\\)');
+            
+            // Markdown画像URLを抽出
+            const imgMatch = iconField.match(/!\[.*?\]\((https:\/\/[^)]+)\)/);
+            if (!imgMatch) {
+              console.log('No icon image found, skipping');
+              return;
+            }
+
+            const imgUrl = imgMatch[1];
+            console.log('Icon URL:', imgUrl);
+
+            // ダウンロード
+            const download = (url) => new Promise((resolve, reject) => {
+              https.get(url, (res) => {
+                if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                  return download(res.headers.location).then(resolve).catch(reject);
+                }
+                const chunks = [];
+                res.on('data', (chunk) => chunks.push(chunk));
+                res.on('end', () => resolve(Buffer.concat(chunks)));
+                res.on('error', reject);
+              }).on('error', reject);
+            });
+
+            const data = await download(imgUrl);
+
+            // サイズチェック (200KB)
+            if (data.length > 200 * 1024) {
+              console.log(`Icon too large (${data.length} bytes), skipping`);
+              return;
+            }
+
+            // 拡張子を判定
+            let ext = 'png';
+            if (imgUrl.match(/\.jpe?g/i)) ext = 'jpg';
+            else if (imgUrl.match(/\.gif/i)) ext = 'gif';
+            else if (imgUrl.match(/\.webp/i)) ext = 'webp';
+
+            const iconPath = path.join('entries', entryName, `icon.${ext}`);
+            fs.writeFileSync(iconPath, data);
+            console.log(`Icon saved: ${iconPath} (${data.length} bytes)`);
+
       - name: Update registry
         if: steps.parse.outputs.has_errors == 'false'
         run: |

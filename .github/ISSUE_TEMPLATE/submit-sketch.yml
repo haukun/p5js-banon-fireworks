@@ -44,3 +44,14 @@ body:
         }
     validations:
       required: true
+
+  - type: textarea
+    id: icon
+    attributes:
+      label: "アイコン画像 / Icon (optional)"
+      description: |
+        作品のアイコン画像をここにドラッグ＆ドロップまたはペーストしてください（任意）。
+        PNG/JPG/GIF、200KB以下。ビューアで作品名の横に表示されます。
+      placeholder: "ここに画像をドラッグ＆ドロップ"
+    validations:
+      required: false

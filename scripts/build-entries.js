@@ -26,11 +26,25 @@ function buildEntries() {
     const titleMatch = code.match(/const\s+TITLE\s*=\s*["'`](.+?)["'`]/);
     const authorMatch = code.match(/const\s+AUTHOR\s*=\s*["'`](.+?)["'`]/);
 
-    entries.push({
+    // アイコン検出
+    const iconExtensions = ['png', 'jpg', 'gif', 'webp'];
+    let icon = null;
+    for (const ext of iconExtensions) {
+      const iconPath = path.join(ENTRIES_DIR, dir, `icon.${ext}`);
+      if (fs.existsSync(iconPath)) {
+        icon = `icon.${ext}`;
+        break;
+      }
+    }
+
+    const entry = {
       id: dir,
       title: titleMatch ? titleMatch[1] : dir,
       author: authorMatch ? authorMatch[1] : 'Anonymous'
-    });
+    };
+    if (icon) entry.icon = icon;
+
+    entries.push(entry);
   }
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(entries, null, 2));

@@ -68,11 +68,29 @@ html, body {
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 12px;
 }
 
 #overlay.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.overlay-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+#overlay-text {
+  display: flex;
+  flex-direction: column;
 }
 
 #overlay-title {
