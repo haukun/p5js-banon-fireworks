@@ -1,6 +1,6 @@
 name: "🎆 作品を投稿する / Submit a Sketch"
 description: "P5.jsスケッチを投稿してください"
-title: "[Submit] "
+title: "[Submit] {{ field:title }}"
 labels: ["submission"]
 body:
   - type: input
