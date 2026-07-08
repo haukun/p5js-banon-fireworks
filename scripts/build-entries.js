@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ENTRIES_DIR = path.join(__dirname, '..', 'entries');
-const OUTPUT_FILE = path.join(__dirname, '..', 'viewer', 'entries.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'viewer-fireworks', 'entries.json');
 
 function buildEntries() {
   const dirs = fs.readdirSync(ENTRIES_DIR, { withFileTypes: true })

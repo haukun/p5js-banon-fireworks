@@ -29,7 +29,7 @@ jobs:
       - name: Prepare deploy directory
         run: |
           mkdir -p _site
-          cp -r viewer/* _site/
+          cp -r viewer-fireworks/* _site/
           cp -r entries _site/entries
 
       - name: Upload artifact
