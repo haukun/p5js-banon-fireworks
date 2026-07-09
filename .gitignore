@@ -2,3 +2,5 @@ node_modules/
 _site/
 .DS_Store
 Thumbs.db
+git_p5js-baton-fireworks.code-workspace
+.kiro/
