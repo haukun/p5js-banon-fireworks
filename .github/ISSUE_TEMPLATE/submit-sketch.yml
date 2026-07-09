@@ -51,7 +51,7 @@ body:
     attributes:
       label: "アイコン画像 / Icon (optional)"
       description: |
-        作品のアイコン画像をここにドラッグ＆ドロップまたはペーストしてください（任意）。
+        あなたのアイコン画像をここにドラッグ＆ドロップまたはペーストしてください（任意）。
         PNG/JPG/GIF、200KB以下。ビューアで作品名の横に表示されます。
         アップロード後、入力欄の内容が `<img src="https://...">` のような文字列に自動で置き換われば成功です。
         Drag & drop or paste an icon image here (optional). PNG/JPG/GIF, max 200KB. Displayed next to your work title.
