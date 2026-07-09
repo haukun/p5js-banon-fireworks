@@ -139,6 +139,8 @@
   }
 
   function createSketchBlobURL(userCode, paused) {
+    const canvasMatch = userCode.match(/createCanvas\s*\(([^)]*)\)/);
+    const useWebGL = canvasMatch ? /\bWEBGL\b/.test(canvasMatch[1]) : false;
     let transformedCode = userCode
       .replace(/function\s+setup\s*\(/g, 'function __p5c_setup__(')
       .replace(/function\s+draw\s*\(/g, 'function __p5c_draw__(')
@@ -190,7 +192,7 @@
     ${safeCode}
 
     function setup() {
-      createCanvas(${CANVAS_WIDTH}, ${CANVAS_HEIGHT});
+      createCanvas(${CANVAS_WIDTH}, ${CANVAS_HEIGHT}${useWebGL ? ', WEBGL' : ''});
       frameRate(60);
       if (typeof __p5c_setup__ === 'function') __p5c_setup__();
       window.parent.postMessage({ type: 'setup-complete' }, '*');

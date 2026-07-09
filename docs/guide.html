@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5js花火大会 - 参加ガイド</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 1.4rem;
+      color: #88ccff;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #333;
+    }
+    h3 {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 12px;
+    }
+    a {
+      color: #88bbff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+    /* テーブル */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #2a2a40;
+      color: #aaa;
+      font-weight: 600;
+    }
+    td {
+      background: #1e1e30;
+    }
+    /* リスト */
+    ol, ul {
+      margin-left: 24px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    ul.nested {
+      margin-top: 6px;
+      list-style: disc;
+    }
+    /* コード */
+    code {
+      background: #2a2a40;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.88em;
+      color: #ffcc66;
+    }
+    pre {
+      background: #16162a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #e8e8e8;
+    }
+    /* 注意書き */
+    .warning {
+      background: #3a1a1a;
+      border-left: 4px solid #cc4444;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    .note {
+      background: #1a2a3a;
+      border-left: 4px solid #4488cc;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 16px;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .faq-a {
+      color: #ccc;
+    }
+    /* ボタンリンク */
+    .btn-link {
+      display: inline-block;
+      background: #4488ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin: 8px 8px 8px 0;
+      transition: background 0.15s;
+    }
+    .btn-link:hover {
+      background: #5599ff;
+      text-decoration: none;
+    }
+    .btn-link.secondary {
+      background: #444;
+    }
+    .btn-link.secondary:hover {
+      background: #555;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 40px 0;
+    }
+    strong {
+      color: #fff;
+    }
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div style="text-align: right; margin-bottom: 8px;">
+      <span style="color: #888;">🌐</span>
+      <strong style="color: #fff;">日本語</strong>
+      <span style="color: #555;">|</span>
+      <a href="guide-en.html">English</a>
+    </div>
+
+    <h1>🎆 p5js花火大会 - 参加ガイド</h1>
+
+    <!-- これは何？ -->
+    <h2>🗒️ これは何？</h2>
+    <p class="lead">P5.jsで「花火」をテーマにした10秒間のアニメーション作品をみんなで持ち寄り、ランダムに連続再生されるオンラインギャラリーです。</p>
+    <p>作品を投稿すると、他の参加者の花火と一緒にクロスフェードで次々に再生されます。</p>
+    <p><a href="https://haukun.github.io/p5js-baton-fireworks/" class="btn-link">現在のギャラリーを見る</a></p>
+
+    <hr>
+
+    <!-- 作品のルール -->
+    <h2>🔷 作品のルール</h2>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>p5.jsバージョン</td><td>2.3.0</td></tr>
+      <tr><td>キャンバスサイズ</td><td>400 x 800 px</td></tr>
+      <tr><td>フレームレート</td><td>60fps（システムが自動設定）</td></tr>
+      <tr><td>再生時間</td><td>10秒間（600フレームで自動停止）</td></tr>
+      <tr><td>テーマ</td><td>花火（解釈は自由！）</td></tr>
+    </table>
+
+    <h3>🎨 動作の仕組み（ざっくり）</h3>
+    <p>あなたの作品は以下のように再生されます：</p>
+    <ol>
+      <li>前の人の作品が終了する</li>
+      <li>あなたの <code>setup()</code> が1回呼ばれる（初期化）</li>
+      <li>クロスフェードであなたの作品が表示される（この間 <code>draw()</code> はまだ動かない）</li>
+      <li>クロスフェードが完了したら <code>draw()</code> が600回呼ばれる（10秒間）</li>
+      <li>10秒経ったら自動で停止し、次の人の作品へ</li>
+    </ol>
+
+    <h3>🖼️ createCanvas について</h3>
+    <p>投稿された作品は <code>createCanvas(400, 800)</code> または <code>createCanvas(400, 800, WEBGL)</code> で実行されます。それ以外の <code>createCanvas()</code> が含まれていてもシステムが自動で置き換えます。</p>
+
+    <h3>⛔ 禁止事項</h3>
+    <ul>
+      <li>無限ループや、<strong>悪意のある</strong>高負荷な処理など、作品の正常な閲覧を妨げるもの</li>
+      <li>公序良俗に反する表現</li>
+      <li>以下のAPIは使用禁止です。コードに含まれていると投稿が拒否されます。また、万が一通過しても実行時にシステムで無効化されているため動作しません。
+        <ul class="nested">
+          <li><code>loadImage()</code>, <code>loadSound()</code> など外部ファイルの読み込み</li>
+          <li><code>fetch()</code>, <code>XMLHttpRequest</code> などネットワーク通信</li>
+          <li><code>eval()</code>, <code>Function()</code> などの動的コード実行</li>
+          <li><code>import</code>, <code>require</code> によるモジュール読み込み</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="warning">🚨 管理者が不適切だと判断した作品は削除いたします。</div>
+
+    <hr>
+
+    <!-- 投稿方法 -->
+    <h2>投稿方法</h2>
+    <p>Gitの知識は不要です。<a href="https://github.com/signup">GitHubアカウント</a>があれば誰でも投稿できます。</p>
+
+    <h3>手順</h3>
+    <ol>
+      <li><a href="../playground/">Playground</a> でコードの動作を確認する</li>
+      <li><a href="https://github.com/haukun/p5js-baton-fireworks/issues/new?template=submit-sketch.yml">投稿ページ</a> を開く</li>
+      <li>以下を入力する：
+        <ul class="nested">
+          <li><strong>作品タイトル</strong> — 作品の名前</li>
+          <li><strong>作者名</strong> — 表示名（ハンドルネームOK）</li>
+          <li><strong>コード</strong> — P5.jsスケッチのコード</li>
+          <li><strong>アイコン画像</strong>（任意） — 作品の横に表示されるアイコン（200KB以下）</li>
+        </ul>
+      </li>
+      <li>「Create」をクリック</li>
+      <li>1〜2分待つとサイトに反映されます！</li>
+    </ol>
+
+    <h3>投稿時の注意</h3>
+    <ul>
+      <li>Issue タイトル欄は自動入力されています。<strong>変更しないでください</strong></li>
+      <li>コードは <code>```javascript```</code> で囲まなくてOK（フォームが自動処理します）</li>
+      <li>作品はGitHubユーザー名に紐づいて管理されるため、1アカウントにつき1作品のみ投稿できます（再投稿で上書き更新できます）</li>
+      <li>投稿したコードは<a href="https://github.com/haukun/p5js-baton-fireworks/tree/main/entries">本リポジトリ</a>上で公開されます。編集や削除をしても履歴として残るため、個人情報などをコードに含めないようご注意ください。</li>
+    </ul>
+
+    <hr>
+
+    <!-- 更新・削除 -->
+    <h2>作品の更新・削除</h2>
+
+    <h3>更新したい場合</h3>
+    <p>同じ手順でもう一度投稿するだけです。前回投稿した作品が上書きされます。</p>
+
+    <h3>削除したい場合</h3>
+    <ol>
+      <li><a href="https://github.com/haukun/p5js-baton-fireworks/issues/new?template=delete-sketch.yml">削除ページ</a> を開く</li>
+      <li>確認チェックを入れて Submit</li>
+      <li>自分の作品が削除され、再投稿可能になります</li>
+    </ol>
+
+    <hr>
+
+    <!-- テスト方法 -->
+    <h2>テストする方法</h2>
+    <p>投稿前に動作確認できます。本番と同じ環境でテストできるページを用意しています。</p>
+    <p><a href="../playground/" class="btn-link">Playground を開く</a></p>
+
+    <hr>
+
+    <!-- Tips -->
+    <h2>Tips</h2>
+    <ul>
+      <li>作品の <code>frameCount</code> は1〜600まで動作しますので、作品中の時間管理に使うことができます。</li>
+      <li><code>background(0, 0, 0, 20);</code> で残像効果が作れます（花火の尾が残る）</li>
+      <li><code>colorMode(HSB)</code> を使うと色相で鮮やかな色が作りやすいです</li>
+      <li>複数の花火を時間差で打ち上げると豪華になります</li>
+      <li><code>noise()</code> や <code>random()</code> で有機的な動きを加えるのもおすすめ</li>
+    </ul>
+
+    <hr>
+
+    <!-- FAQ -->
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: 勝手に参加してよい？</p>
+      <p class="faq-a">A: p5.jsが書ければだれでも参加OKです！</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: createCanvas() を書いてしまったけど大丈夫？</p>
+      <p class="faq-a">A: 大丈夫です。システムが自動で除去します。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: 600フレーム経ったらどうなる？</p>
+      <p class="faq-a">A: 自動的にアニメーションが停止し、次の作品にクロスフェードします。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: 作品を修正したい</p>
+      <p class="faq-a">A: もう一度投稿すれば上書きされます。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: エラーで投稿できなかった</p>
+      <p class="faq-a">A: Issueにエラー内容がコメントされます。内容を修正して再度投稿してください。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: 他の人の作品に影響はある？</p>
+      <p class="faq-a">A: ありません。各作品は独立したiframe内で実行されます。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: 質問・意見があります</p>
+      <p class="faq-a">A: <a href="https://x.com/Hau_kun">@Hau_kun</a> か Issues 等でコメントください。</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: セキュリティーホールを見つけてしまった！</p>
+      <p class="faq-a">A: Pull requestsください！（マージは管理者が確認して行います）</p>
+    </div>
+
+    <hr>
+
+    <footer>
+      <a href="https://haukun.github.io/p5js-baton-fireworks/">ギャラリー</a> ・
+      <a href="../playground/">Playground</a> ・
+      <a href="https://github.com/haukun/p5js-baton-fireworks">GitHub</a>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5js Fireworks - Participation Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 1.4rem;
+      color: #88ccff;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #333;
+    }
+    h3 {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 12px;
+    }
+    a {
+      color: #88bbff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .lead {
+      font-size: 1.05rem;
+      color: #bbb;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background: #2a2a40;
+      color: #aaa;
+      font-weight: 600;
+    }
+    td {
+      background: #1e1e30;
+    }
+    ol, ul {
+      margin-left: 24px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    ul.nested {
+      margin-top: 6px;
+      list-style: disc;
+    }
+    code {
+      background: #2a2a40;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.88em;
+      color: #ffcc66;
+    }
+    pre {
+      background: #16162a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #e8e8e8;
+    }
+    .warning {
+      background: #3a1a1a;
+      border-left: 4px solid #cc4444;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    .note {
+      background: #1a2a3a;
+      border-left: 4px solid #4488cc;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+    .faq-item {
+      margin-bottom: 16px;
+    }
+    .faq-q {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .faq-a {
+      color: #ccc;
+    }
+    .btn-link {
+      display: inline-block;
+      background: #4488ff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin: 8px 8px 8px 0;
+      transition: background 0.15s;
+    }
+    .btn-link:hover {
+      background: #5599ff;
+      text-decoration: none;
+    }
+    .btn-link.secondary {
+      background: #444;
+    }
+    .btn-link.secondary:hover {
+      background: #555;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #333;
+      margin: 40px 0;
+    }
+    strong {
+      color: #fff;
+    }
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div style="text-align: right; margin-bottom: 8px;">
+      <span style="color: #888;">🌐</span>
+      <a href="guide.html">日本語</a>
+      <span style="color: #555;">|</span>
+      <strong style="color: #fff;">English</strong>
+    </div>
+
+    <h1>🎆 p5js Fireworks - Participation Guide</h1>
+
+    <!-- What is this? -->
+    <h2>🗒️ What is this?</h2>
+    <p class="lead">An online gallery where everyone contributes 10-second "fireworks" animations made with p5.js, played back-to-back with crossfade transitions in random order.</p>
+    <p>Once submitted, your fireworks will be displayed alongside other participants' works in a continuous loop.</p>
+    <p><a href="https://haukun.github.io/p5js-baton-fireworks/" class="btn-link">View the Gallery</a></p>
+
+    <hr>
+
+    <!-- Rules -->
+    <h2>🔷 Rules</h2>
+    <table>
+      <tr><th>Item</th><th>Details</th></tr>
+      <tr><td>p5.js version</td><td>2.3.0</td></tr>
+      <tr><td>Canvas size</td><td>400 x 800 px</td></tr>
+      <tr><td>Frame rate</td><td>60fps (set automatically by the system)</td></tr>
+      <tr><td>Duration</td><td>10 seconds (auto-stops at 600 frames)</td></tr>
+      <tr><td>Theme</td><td>Fireworks (interpret freely!)</td></tr>
+    </table>
+
+    <h3>🎨 How it works (overview)</h3>
+    <p>Your sketch is played as follows:</p>
+    <ol>
+      <li>The previous person's sketch finishes</li>
+      <li>Your <code>setup()</code> is called once (initialization)</li>
+      <li>Your sketch fades in via crossfade (<code>draw()</code> is not running yet)</li>
+      <li>After the crossfade completes, <code>draw()</code> is called 600 times (10 seconds)</li>
+      <li>After 10 seconds, it auto-stops and transitions to the next sketch</li>
+    </ol>
+
+    <h3>🖼️ About createCanvas</h3>
+    <p>Submitted sketches run with <code>createCanvas(400, 800)</code> or <code>createCanvas(400, 800, WEBGL)</code>. Any other <code>createCanvas()</code> in your code will be automatically replaced by the system.</p>
+
+    <h3>⛔ Prohibited</h3>
+    <ul>
+      <li>Infinite loops or <strong>malicious</strong> heavy processing that disrupts normal viewing</li>
+      <li>Content that violates public decency</li>
+      <li>The following APIs are prohibited. Code containing them will be rejected on submission. Even if they pass, they are disabled at runtime:
+        <ul class="nested">
+          <li><code>loadImage()</code>, <code>loadSound()</code> and other external file loading</li>
+          <li><code>fetch()</code>, <code>XMLHttpRequest</code> and other network communication</li>
+          <li><code>eval()</code>, <code>Function()</code> and other dynamic code execution</li>
+          <li><code>import</code>, <code>require</code> module loading</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="warning">🚨 Works deemed inappropriate will be removed by the administrator.</div>
+
+    <hr>
+
+    <!-- How to submit -->
+    <h2>How to Submit</h2>
+    <p>No Git knowledge required. Anyone with a <a href="https://github.com/signup">GitHub account</a> can submit.</p>
+
+    <h3>Steps</h3>
+    <ol>
+      <li>Test your code in the <a href="../playground/">Playground</a></li>
+      <li>Open the <a href="https://github.com/haukun/p5js-baton-fireworks/issues/new?template=submit-sketch.yml">submission page</a></li>
+      <li>Fill in the following:
+        <ul class="nested">
+          <li><strong>Title</strong> — name of your work</li>
+          <li><strong>Author</strong> — display name (nicknames OK)</li>
+          <li><strong>Code</strong> — your p5.js sketch code</li>
+          <li><strong>Icon image</strong> (optional) — displayed next to your work (max 200KB)</li>
+        </ul>
+      </li>
+      <li>Click "Create"</li>
+      <li>Wait 1-2 minutes for it to appear on the site!</li>
+    </ol>
+
+    <h3>Notes</h3>
+    <ul>
+      <li>The Issue title field is pre-filled. <strong>Do not change it.</strong></li>
+      <li>No need to wrap code in <code>```javascript```</code> (the form handles it automatically)</li>
+      <li>Works are managed per GitHub username — one submission per account (resubmit to overwrite)</li>
+      <li>Submitted code is published on <a href="https://github.com/haukun/p5js-baton-fireworks/tree/main/entries">this repository</a>. Even after editing or deletion, history remains. Do not include personal information in your code.</li>
+    </ul>
+
+    <hr>
+
+    <!-- Update / Delete -->
+    <h2>Update / Delete</h2>
+
+    <h3>To update</h3>
+    <p>Simply resubmit using the same steps. Your previous work will be overwritten.</p>
+
+    <h3>To delete</h3>
+    <ol>
+      <li>Open the <a href="https://github.com/haukun/p5js-baton-fireworks/issues/new?template=delete-sketch.yml">deletion page</a></li>
+      <li>Check the confirmation box and submit</li>
+      <li>Your work will be removed and you can submit again</li>
+    </ol>
+
+    <hr>
+
+    <!-- Testing -->
+    <h2>Testing</h2>
+    <p>You can test your code before submitting. We provide a page that runs in the same environment as production.</p>
+    <p><a href="../playground/" class="btn-link">Open Playground</a></p>
+
+    <hr>
+
+    <!-- Tips -->
+    <h2>Tips</h2>
+    <ul>
+      <li><code>frameCount</code> runs from 1 to 600 — use it for time-based animations</li>
+      <li><code>background(0, 0, 0, 20);</code> creates a trail effect (firework tails linger)</li>
+      <li><code>colorMode(HSB)</code> makes it easy to create vibrant colors using hue</li>
+      <li>Launching multiple fireworks with time offsets makes it look spectacular</li>
+      <li><code>noise()</code> and <code>random()</code> add organic movement</li>
+    </ul>
+
+    <hr>
+
+    <!-- FAQ -->
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: Can I just join without asking?</p>
+      <p class="faq-a">A: Yes! Anyone who can write p5.js is welcome.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: I included createCanvas() — is that OK?</p>
+      <p class="faq-a">A: No problem. The system removes it automatically.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: What happens after 600 frames?</p>
+      <p class="faq-a">A: The animation stops automatically and crossfades to the next sketch.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: I want to fix my sketch</p>
+      <p class="faq-a">A: Just resubmit — it will overwrite the previous version.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: My submission was rejected</p>
+      <p class="faq-a">A: The error details are posted as a comment on the Issue. Fix and resubmit.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: Can my sketch affect others?</p>
+      <p class="faq-a">A: No. Each sketch runs in an isolated iframe.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: I have questions or feedback</p>
+      <p class="faq-a">A: Contact <a href="https://x.com/Hau_kun">@Hau_kun</a> or comment on Issues.</p>
+    </div>
+
+    <div class="faq-item">
+      <p class="faq-q">Q: I found a security vulnerability!</p>
+      <p class="faq-a">A: Please submit a pull request! (Merges are reviewed by the admin.)</p>
+    </div>
+
+    <hr>
+
+    <footer>
+      <a href="https://haukun.github.io/p5js-baton-fireworks/">Gallery</a> ・
+      <a href="../playground/">Playground</a> ・
+      <a href="https://github.com/haukun/p5js-baton-fireworks">GitHub</a>
+    </footer>
+
+  </div>
+</body>
+</html>

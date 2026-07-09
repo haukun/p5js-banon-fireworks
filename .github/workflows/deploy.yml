@@ -35,6 +35,7 @@ jobs:
           cp -r playground _site/playground
           mkdir -p _site/docs
           cp docs/guide.html _site/docs/guide.html
+          cp docs/guide-en.html _site/docs/guide-en.html
           # ルートからviewer-fireworksにリダイレクト
           echo '<meta http-equiv="refresh" content="0;url=viewer-fireworks/">' > _site/index.html
 

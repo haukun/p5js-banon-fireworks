@@ -13,7 +13,7 @@ permissions:
 jobs:
   delete:
     runs-on: ubuntu-latest
-    if: github.event.issue.title == '作品削除'
+    if: contains(github.event.issue.labels.*.name, 'delete')
     steps:
       - uses: actions/checkout@v4
 
@@ -102,6 +102,9 @@ jobs:
           cp -r viewer-fireworks/* _site/viewer-fireworks/
           cp -r entries _site/entries
           cp -r playground _site/playground
+          mkdir -p _site/docs
+          cp docs/guide.html _site/docs/guide.html
+          cp docs/guide-en.html _site/docs/guide-en.html
           echo '<meta http-equiv="refresh" content="0;url=viewer-fireworks/">' > _site/index.html
 
       - name: Upload Pages artifact
