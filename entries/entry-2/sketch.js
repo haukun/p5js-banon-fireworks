@@ -1,15 +1,19 @@
 // ============================================================
-const TITLE = "テスト花火3";
-const AUTHOR = "Haukun";
+const TITLE = "3Dテスト";
+const AUTHOR = "haukun";
 // ============================================================
 
 function setup() {
-  background(255,128,128)
+  createCanvas(400, 800, WEBGL);
 }
-
+h =0
 function draw() {
-  background(128,128,255)
-  for(r=0;r<TAU;r+=PI/32){
-    circle(200+cos(r)*frameCount/3,400+sin(r)*frameCount/3,9)
+  colorMode(HSB)
+  if(frameCount%10==1){
+    h=random(360)
   }
+  background(h,50,50);
+  rotateX(frameCount/20)
+  rotateY(frameCount/50)
+  box(100)
 }
