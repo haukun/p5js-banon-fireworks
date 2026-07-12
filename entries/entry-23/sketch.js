@@ -20,7 +20,7 @@ class Particle {
   update() {
     this.velocity.add(this.acceleration)
     this.position.add(this.velocity)
-    this.lifespan -= 2
+    this.lifespan -= 1.5
   }
 
   display() {
@@ -64,7 +64,7 @@ class Fireworks {
   }
 
   initFireworks() {
-    const MAX_NUMBER = random(5, 10)
+    const MAX_NUMBER = random(8, 20)
     this.fireworks = []
 
     for (let i = 0; i < MAX_NUMBER; i++) {
